@@ -8,8 +8,7 @@
 #ifndef LIBMY_
         #define LIBMY_
 
-    #include <SFML/Graphics.h>
-    #include <SFML/Audio.h>
+
     #include "my_printf.h"
     #include "menu.h"
 
@@ -83,10 +82,7 @@ int right_pad(printf_args_t *arg, int written);
 int left_pad(printf_args_t *arg, int written);
 int may_you_show_this_formatting(char **ptr, printf_args_t *arg);
 int my_putnbr_base(int nbr, char const *base);
-int game_setup(void);
-int mouse_click(void);
-sfSprite sprite(sfRenderWindow *window, sfEvent event, sfSprite *sprite);
-int fermeture(sfRenderWindow *window, sfEvent event, sfSprite *sprite);
+
 char **my_str_to_word_array(char const *str);
 char *my_strdup(char const *src);
 int my_str_replace(char *str, char c, char d);

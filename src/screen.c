@@ -14,11 +14,11 @@ void init_screen(void)
     initscr();
     noecho();
     curs_set(0);
+    keypad(stdscr, TRUE);
 }
 
 void close_screen(char *buffer, char **map)
 {
-    display(map, buffer);
     refresh();
     endwin();
 }
@@ -48,11 +48,20 @@ int my_screen(char *buffer, char **map, char **saved_map, int nb_rows)
     while (1) {
         clear();
         display(map, buffer);
+        refresh();
         end_game = proce_game(buffer, map, saved_map, nb_rows);
         if (end_game == 1 || end_game == 0 || end_game == 2) {
             clear();
-            refresh();
-            usleep(100000);
+            if (end_game == 1) {
+                mvprintw(LINES / 2, COLS / 2 - 4, "GAME OVER");
+                refresh();
+                usleep(2000000);
+            }
+            if (end_game == 0) {
+                mvprintw(LINES / 2, COLS / 2 - 3, "YOU WIN");
+                refresh();
+                usleep(2000000);
+            }
             break;
         }
     }

@@ -1,55 +1,149 @@
-# My Sokoban
+# My Sokoban - Projet Epitech
 
 ## Description
 
-My Sokoban est une implémentation du jeu classique Sokoban en C. Le jeu se déroule sur un tableau où le joueur doit déplacer des caisses (représentées par des 'X') vers des emplacements cibles (représentés par des 'O'). Le joueur peut se déplacer dans toutes les directions à l'aide des touches directionnelles. L'objectif est de placer toutes les caisses sur les emplacements cibles pour gagner.
+Ce projet est une implémentation du jeu classique **Sokoban** développée dans le cadre du cursus Epitech. Le Sokoban est un jeu de puzzle où le joueur doit pousser des caisses sur des emplacements cibles dans un entrepôt.
 
-## Installation
+## Fonctionnalités
 
-1. Clonez le dépôt :
-    ```bash
-    git clone git@github.com:JimmyRamsamynaick/my_sokoban_Epitech.git
-    cd my_sokoban_Epitech
-    ```
+### ✅ Fonctionnalités implémentées
 
-2. Compilez le programme :
-    ```bash
-    make
-    ```
+- **Interface graphique** : Utilisation de la bibliothèque ncurses pour l'affichage
+- **Gestion des cartes** : Lecture et affichage de cartes depuis des fichiers texte
+- **Contrôles** : Déplacement du joueur avec les touches directionnelles
+- **Logique de jeu** : 
+  - Déplacement du joueur (P)
+  - Poussée des caisses (X)
+  - Détection des emplacements cibles (O)
+  - Conditions de victoire et de défaite
+- **Gestion d'erreurs** : Validation des cartes et gestion des cas d'erreur
+- **Compilation** : Makefile complet avec règles de nettoyage
 
-## Utilisation
+### 🎮 Comment jouer
 
-Pour jouer, exécutez le programme avec la commande suivante :
+1. Compilez le projet : `make`
+2. Lancez le jeu : `./my_sokoban map1.txt`
+3. Utilisez les touches directionnelles pour déplacer le joueur
+4. Poussez toutes les caisses (X) sur les emplacements cibles (O) pour gagner
+5. Appuyez sur 'q' pour quitter
+
+### 📁 Structure du projet
+
+```
+├── src/                    # Code source principal
+│   ├── screen.c           # Gestion de l'écran ncurses
+│   ├── screen_fonctions.c # Fonctions d'affichage
+│   ├── move.c             # Gestion des déplacements
+│   ├── move2.c            # Fonctions de mouvement avancées
+│   ├── array.c            # Manipulation des tableaux
+│   ├── fill_tab.c         # Remplissage des structures
+│   ├── open.c             # Ouverture des fichiers
+│   ├── manage_errors.c    # Gestion des erreurs
+│   ├── end_victory.c      # Conditions de victoire
+│   ├── end_defeat.c       # Conditions de défaite
+│   └── ...
+├── lib/my/                # Bibliothèque personnelle
+├── main.c                 # Point d'entrée du programme
+├── my.h                   # Header principal
+├── Makefile              # Fichier de compilation
+└── map1.txt              # Carte d'exemple
+```
+
+### 🗺️ Format des cartes
+
+Les cartes sont des fichiers texte utilisant les caractères suivants :
+- `#` : Mur
+- `P` : Joueur
+- `X` : Caisse
+- `O` : Emplacement cible
+- ` ` : Espace vide
+
+## Compilation et utilisation
+
+### Prérequis
+- GCC
+- Bibliothèque ncurses (`sudo apt-get install libncurses5-dev` sur Ubuntu/Debian)
+- Make
+
+### Commandes
+
 ```bash
-./my_sokoban map1.txt
+# Compilation
+make
+
+# Nettoyage des fichiers objets
+make clean
+
+# Nettoyage complet
+make fclean
+
+# Recompilation complète
+make re
+
+# Exécution
+./my_sokoban <fichier_carte>
 ```
 
-Pour avoir une descrition, exécuter le programme avec la commande suivante :
+## État du projet
+
+### ✅ Fonctionnalités de base complètes
+
+Ce projet implémente toutes les fonctionnalités de base requises pour un Sokoban fonctionnel :
+- Affichage correct des cartes
+- Déplacements fluides du joueur
+- Logique de poussée des caisses
+- Détection des conditions de fin de jeu
+- Gestion robuste des erreurs
+
+### 🚀 Améliorations possibles
+
+Bien que le projet soit fonctionnel, plusieurs améliorations peuvent être apportées :
+
+#### Interface utilisateur
+- [ ] Menu principal avec sélection de niveaux
+- [ ] Affichage du nombre de mouvements
+- [ ] Système de score
+- [ ] Animation des déplacements
+- [ ] Sons et effets visuels
+
+#### Gameplay
+- [ ] Fonction "undo" (annuler le dernier mouvement)
+- [ ] Sauvegarde/chargement de parties
+- [ ] Niveaux de difficulté progressive
+- [ ] Éditeur de niveaux intégré
+- [ ] Mode multijoueur
+
+#### Technique
+- [ ] Optimisation des performances
+- [ ] Support de cartes de taille variable
+- [ ] Amélioration de la gestion mémoire
+- [ ] Tests unitaires
+- [ ] Documentation du code
+
+## Coding Style Epitech
+
+⚠️ **Important** : Ce projet suit les normes de codage Epitech. Avant de contribuer ou de modifier le code, assurez-vous de :
+
+1. Respecter la norme Epitech (indentation, nommage, etc.)
+2. Vérifier le coding style avec l'outil officiel Epitech
+3. Maintenir la cohérence du code existant
+4. Documenter les nouvelles fonctions selon les standards Epitech
+
+### Vérification du coding style
+
 ```bash
-./my_sokoban -h
+# Utilisez l'outil de vérification Epitech
+coding-style . .
 ```
 
-## Commandes du Jeu
+## Auteur
 
-    Utilisez les touches directionnelles pour déplacer le joueur.
-    Appuyez sur 'q' pour quitter le jeu.
-    Appuyez sur la barre d'espace pour mettre le jeu en pause.
+Projet développé dans le cadre du cursus Epitech.
 
-### Exemple de carte : 
-Voici un exemple de carte Sokoban (représentée dans un fichier texte) :
-```shell
-#######
-#O X  #
-#  X  #
-#  X  #
-#   O #
-#######
-```
-    '#' représente les murs.
-    'O' représente les emplacements cibles.
-    'X' représente les caisses.
-    ' ' représente les espaces vides.
-    Le joueur est représenté par sa position sur la carte.
+## Licence
 
-#### Auteurs
-- [Jimmy](https://github.com/JimmyRamsamynaick)
+Ce projet est développé à des fins éducatives dans le cadre d'Epitech.
+
+---
+
+**Note** : Ce projet constitue une base solide pour un jeu Sokoban. Bien que toutes les fonctionnalités essentielles soient implémentées, il reste de nombreuses possibilités d'amélioration pour enrichir l'expérience de jeu.

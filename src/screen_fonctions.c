@@ -40,8 +40,10 @@ void display(char **map, char *buffer)
         mvprintw(LINES / 2, (COLS / 2) - (size / 2), msg);
     } else {
         for (int i = 0; i < nb_rows; i = i + 1) {
+            int len = 0;
+            while (map[i][len] != '\n' && map[i][len] != '\0') len++;
             mvprintw(LINES / 2 - nb_rows / 2 + i, COLS / 2 - nb_cols / 2,
-            "%s", map[i]);
+            "%.*s", len, map[i]);
         }
     }
 }

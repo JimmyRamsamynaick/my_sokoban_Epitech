@@ -99,15 +99,19 @@ char **move_up(char **map, int nb_rows, char **saved_map)
 char **deplacement(int input, char **map, int nb_rows, char **saved_map)
 {
     switch (input) {
+        case KEY_UP:
         case 65:
             map = move_up(map, nb_rows, saved_map);
             break;
+        case KEY_DOWN:
         case 66:
             map = move_down(map, nb_rows, saved_map);
             break;
+        case KEY_LEFT:
         case 68:
             map = move_left(map, nb_rows, saved_map);
             break;
+        case KEY_RIGHT:
         case 67:
             map = move_right(map, nb_rows, saved_map);
             break;
