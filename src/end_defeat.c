@@ -32,7 +32,7 @@ int get_nb_x(char **map, int nb_rows)
 
 int check_stuck(char **map, int i, int j)
 {
-    // Vérifier si la caisse est dans un coin (bloquée par deux murs/caisses adjacents)
+    // Check if box is stuck in corner (blocked by two adjacent walls/boxes)
     if ((map[i][j - 1] == '#' || map[i][j - 1] == 'X') &&
             (map[i - 1][j] == '#' || map[i - 1][j] == 'X'))
         return 1;
@@ -45,7 +45,7 @@ int check_stuck(char **map, int i, int j)
     if ((map[i][j + 1] == '#' || map[i][j + 1] == 'X') &&
         (map[i + 1][j] == '#' || map[i + 1][j] == 'X'))
         return 1;
-    
+
     return 0;
 }
 
